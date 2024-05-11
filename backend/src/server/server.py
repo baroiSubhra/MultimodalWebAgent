@@ -1,8 +1,14 @@
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 from src.oai_agent.oai_agent import main
 
 
 app = Flask(__name__)
+CORS(app)
+
+@app.route('/', methods=['GET'])
+def root():
+    return jsonify({'message': 'Server is up'}),200
 
 @app.route('/ping', methods=['GET'])
 def pong():
@@ -14,7 +20,7 @@ def dummy_test():
     try:
         query = params['query']
         if(query and len(query)> 0): 
-            return 'Query executed successfully', 200
+            return jsonify({'message': 'Query executed successfully'}),200
         else:
             raise Exception('Invalid Query')
     except Exception as e:
@@ -26,8 +32,8 @@ def run_script():
     try:
         query = params['query']
         if(query and len(query)> 0): 
-            main("test")
-            return 'Query executed successfully',200
+            main(query)
+            return jsonify({'message': 'Query executed successfully'}),200
         else:
             raise Exception('Invalid Query')
     except Exception as e:

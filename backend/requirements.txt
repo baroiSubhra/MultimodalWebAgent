@@ -205,6 +205,9 @@ docstring-parser==0.15 ; python_version >= "3.11" and python_version < "3.13" \
 flaml==2.1.1 ; python_version >= "3.11" and python_version < "3.13" \
     --hash=sha256:53e94aacc996da80fe779bc6833d3b25c80c77fe11667d0912798e49293282eb \
     --hash=sha256:ba34f1a06f3cbc6bb23a2ea4830a264375f6bba497f402122a73e42647a15535
+flask-cors==4.0.1 ; python_version >= "3.11" and python_version < "3.13" \
+    --hash=sha256:eeb69b342142fdbf4766ad99357a7f3876a2ceb77689dc10ff912aac06c389e4 \
+    --hash=sha256:f2a704e4458665580c074b714c4627dd5a306b333deb9074d0b1794dfa2fb677
 flask==3.0.3 ; python_version >= "3.11" and python_version < "3.13" \
     --hash=sha256:34e815dfaa43340d1d15a5c3a02b8476004037eb4840b34910c6e21679d288f3 \
     --hash=sha256:ceb27b0af3823ea2737928a4d99d125a06175b8512c445cbd9a9ce200ef76842
