@@ -6,6 +6,7 @@ interface Props {
   inputMessage: string;
   handleInputChange: any;
   submitMessage: any;
+  disabled: boolean;
 }
 
 export default function Input({
@@ -14,6 +15,7 @@ export default function Input({
   inputMessage,
   handleInputChange,
   submitMessage,
+  disabled,
 }: Props) {
   return (
     <div className="input-wraper">
@@ -24,6 +26,7 @@ export default function Input({
           placeholder={placeholder}
           value={inputMessage}
           onChange={handleInputChange}
+          disabled={disabled}
         />
         <div className="input-icon-holder">
           {showUploadIcon ? <Upload /> : <></>}

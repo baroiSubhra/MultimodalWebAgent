@@ -40,6 +40,7 @@ h2,
 h3,
 h4,
 h5,
+h6,
 p,
 figure,
 blockquote,
@@ -74,8 +75,20 @@ dd {
   cursor: pointer;
 }
 
-.blue-icons{
+.blue-icons {
   color: rgb(13, 125, 244);
+}
+
+.green-icon {
+  color: rgb(26, 232, 163);
+}
+
+.red-icon {
+  color: rgb(250, 146, 146);
+}
+
+.status-icon {
+  width: 12px;
 }
 
 .input-wraper {
@@ -103,6 +116,7 @@ dd {
   display: block;
   padding: 0.625rem;
   padding-left: 0.725rem;
+  padding-right: 2.2rem;
   background-color: var(--input-bg);
   color: var(--input-color);
   font-size: 0.875rem;
@@ -147,6 +161,17 @@ dd {
   width: 360px;
 }
 
+.side-bar-status {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 4px;
+}
+
+.example-query {
+  max-height: 100%;
+  overflow-y: scroll;
+}
+
 .sidebar-card {
   display: flex;
   padding: 16px;
@@ -155,7 +180,7 @@ dd {
   background-color: var(--sidebar-bg);
   align-items: center;
   max-width: 400px;
-  transition: all .2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 
 .sidebar-card:hover {

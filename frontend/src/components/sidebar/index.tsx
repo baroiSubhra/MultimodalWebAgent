@@ -1,5 +1,7 @@
 import Cards from "./Cards";
-import { cardsData, defaultLogo, defaultLogoAlt } from "./cardsData";
+import { useRecoilState } from "recoil";
+import { sidebarCards } from "../../atoms/atoms";
+import { defaultLogo, defaultLogoAlt } from "./cardsData";
 import Play from "../../icons/Play";
 import Startover from "../../icons/Startover";
 import Step from "../../icons/Step";
@@ -13,20 +15,49 @@ export interface Payload {
 
 const index = () => {
   const [inputMessage, setInputMessage] = useState("");
+  const [querryInProgress, setQuerryInProgress] = useState(false);
+  const [cardsData, setCardsData] = useRecoilState(sidebarCards);
+
   const handleInputChange = (event: any) => {
     setInputMessage(event.target.value);
   };
-  const submitMessage = (e: any) => {
+
+  const submitMessage = async (e: any) => {
+    if (querryInProgress) return;
+    setQuerryInProgress(true);
     e.preventDefault();
     const payload: Payload = {
-      query: "hiiii",
+      query: inputMessage,
     };
-    postQuery(payload);
-    console.log(e);
+    setInputMessage("");
+    addNewCard(payload.query, false);
+    const result = await postQuery(payload);
+    if (!result.success) {
+      setInputMessage(payload.query);
+    }
+    addNewCard(payload.query, true);
+    setQuerryInProgress(false);
   };
+
+  const addNewCard = (query: string, done: boolean) => {
+    const payload = {
+      logo: defaultLogo,
+      logoalt: defaultLogoAlt,
+      query,
+      done,
+    };
+    setCardsData([...cardsData, payload]);
+  };
+
   const cards = cardsData.map((el, index) => {
     return (
-      <Cards key={index} logo={el.logo} logoalt={el.logoalt} query={el.query} />
+      <Cards
+        key={index}
+        logo={el.logo}
+        logoalt={el.logoalt}
+        query={el.query}
+        done={el.done}
+      />
     );
   });
 
@@ -41,6 +72,7 @@ const index = () => {
             submitMessage={submitMessage}
             placeholder="Write a command"
             showUploadIcon={true}
+            disabled={querryInProgress}
           />
         </div>
         <div className="action-buttons">
