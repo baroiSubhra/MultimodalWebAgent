@@ -1,0 +1,239 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
+
+:root {
+  --sidebar-bg: #f6f6f6;
+  --chat-area-bg: white;
+  --text-color: black;
+  --button-bg: white;
+  --button-txt-color: black;
+  --input-bg: white;
+  --input-color: black;
+  --secondary-color: #e7e7e7;
+  --secondary-color-dark: #cbcdd4;
+}
+
+body:has(.dark-theme) {
+  --sidebar-bg: black;
+  --chat-area-bg: #343541;
+  --text-color: white;
+  --button-bg: #15141b;
+  --button-txt-color: white;
+  --input-bg: #343541;
+  --input-color: white;
+  --secondary-color: #6b7280;
+  --secondary-color-dark: rgba(255, 255, 255, 0.2);
+}
+
+html {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: inherit;
+  -moz-box-sizing: inherit;
+  box-sizing: inherit;
+}
+
+.container {
+  display: flex;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  color: var(--text-color);
+}
+
+.icons {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+
+.blue-icons{
+  color: rgb(13, 125, 244);
+}
+
+.input-wraper {
+  position: relative;
+}
+
+.input-icon-holder {
+  display: flex;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  padding-right: 0.75rem;
+  align-items: center;
+  pointer-events: none;
+}
+
+.input-icon {
+  color: var(--input-color);
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.input-modifer {
+  display: block;
+  padding: 0.625rem;
+  padding-left: 0.725rem;
+  background-color: var(--input-bg);
+  color: var(--input-color);
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  width: 100%;
+  border-radius: 0.5rem;
+  border: 1px solid var(--secondary-color);
+}
+
+.input-modifer:focus {
+  outline: none;
+  background-color: var(--input-bg);
+  color: var(--input-color);
+}
+
+.input-modifer:not(:placeholder-shown) {
+  background-color: var(--input-bg);
+}
+
+.input-modifer:autofill,
+.input-modifer:-webkit-autofill {
+  appearance: none;
+  background: none;
+  background-color: var(--input-bg) !important;
+  color: var(--input-color) !important;
+}
+
+.input-wraper:has(.input-modifer:not(:placeholder-shown), .input-modifer:focus)
+  .input-icon {
+  color: var(--input-color);
+}
+
+.input-wraper:has(.input-disabled) .input-icon {
+  color: #6b7280;
+}
+
+.sidebar {
+  border-right: 1px solid var(--secondary-color);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 360px;
+}
+
+.sidebar-card {
+  display: flex;
+  padding: 16px;
+  margin: 8px;
+  border-radius: 8px;
+  background-color: var(--sidebar-bg);
+  align-items: center;
+  max-width: 400px;
+  transition: all .2s ease-in-out;
+}
+
+.sidebar-card:hover {
+  cursor: pointer;
+  transform: scale(1.04);
+}
+
+.sidebar-logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sidebar-logo {
+  max-width: 24px;
+}
+
+.sidebar-content {
+  margin-left: 8px;
+  width: 100%;
+  flex: 1;
+  height: fit-content;
+}
+
+.action-buttons {
+  margin: 8px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.action-buttons div svg:hover {
+  cursor: pointer;
+}
+
+.start-over-btn,
+.step-btn {
+  width: 24px;
+}
+
+.play-btn {
+  width: 48px;
+}
+
+.main {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--sidebar-bg);
+}
+
+.playoutline {
+  max-width: 48px;
+}
+
+.input-container {
+  margin: 8px;
+}
+
+.sidebar-no-container {
+  padding: 0 8px 0 8px;
+}
+
+.steps-card {
+  border: 1px solid var(--secondary-color);
+}
+
+.main-child {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 16px;
+  gap: 8px;
+  color: var(--secondary-color-dark);
+}
+
+.center-text {
+  text-align: center;
+}
